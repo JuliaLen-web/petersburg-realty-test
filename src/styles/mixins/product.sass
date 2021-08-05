@@ -1,0 +1,127 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+.product
+  width: calc((100% - 23px) / 2)
+  border: 1px solid $base
+  box-sizing: border-box
+  padding: 25px
+  margin-bottom: 23px
+  background: $base-lightest
+  display: flex
+
+  &:nth-child(2n+1)
+    margin-right: 23px
+
+  &__info
+    display: flex
+    flex-direction: column
+    height: 100%
+
+    &-pricetag
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      margin-bottom: 6px
+
+      &-price
+        margin-right: 16px
+        +font(15px, 20px, bold)
+        color: $accent-dark
+
+      &-name
+        display: flex
+        align-items: center
+        padding: 5px 16px
+        box-shadow: 0 0 2px rgba(94, 119, 157, 0.25)
+        border-radius: 32px
+
+        &-img
+          height: 14px
+          width: 14px
+          margin-right: 8px
+
+    &-developer
+      +font(14px, 18px)
+
+      span
+        color: $base-dark
+
+    &-address
+      margin-top: auto
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        left: -15px
+        width: 10px
+        height: 13px
+        background: url(../assets/img/svg/mark.svg) no-repeat center
+
+  &__plan
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-end
+    margin-left: auto
+    min-width: 140px
+
+    &-status
+      margin-right: -25px
+      box-sizing: border-box
+      position: relative
+      padding: 6px 9px 6px 23px
+      +font(14px, 18px)
+
+      &:before
+        content: ''
+        position: absolute
+        width: 6px
+        height: 6px
+        border-radius: 50%
+        margin-right: 8px
+        left: 9px
+        top: calc(50% - 3px)
+
+      &_entity
+        background: $accent-dim
+        color: $accent
+
+        &:before
+          background: $accent
+
+      &_individual
+        background: $accent-second-dim
+        color: $accent-second
+
+        &:before
+          background: $accent-second
+
+      &_booked
+        background: #EDEDED
+        color: #686868
+
+        &:before
+          background: #686868
+
+      &_sold
+        background: $base-dark
+        color: #808080
+
+        &:before
+          background: #808080
+
+    &-img
+      width: 127px
+      margin: 27px 0 12px
+
+      img
+        width: 100%
+        object-fit: contain
+
+    &-date
+      +font(13px, 20px)
+      color: $base-dark
+      text-align: right
+

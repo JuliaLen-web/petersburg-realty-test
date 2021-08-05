@@ -1,0 +1,39 @@
+include ../mixins/product
+
+.catalog
+  .catalog__products
+    +product({
+      price: '7 733 300',
+      developer: 'Чистое небо',
+      developer_date: 'корпус 10, III кв. 2022 г.',
+      address: 'Лен. область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1',
+      status: 'entity',
+      status_text: 'Уступка от юр.лица'
+    })
+    +product({
+      price: '800 300',
+      developer: 'Зеленый квартал на Пулковских высотах',
+      developer_date: 'корпус 10, II кв. 2022 г.',
+      address: 'Комендантский пр., уч. 1 Каменка',
+      status: 'individual',
+      status_text: 'Уступка от физ.лица'
+    })
+    +product({
+      price: '7 733 300',
+      developer: 'Чистое небо',
+      developer_date: 'корпус 10, III кв. 2023 г.',
+      address: 'Ленинградская область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1',
+      status: 'booked',
+      status_text: 'Зарезервировано'
+    })
+    +product({
+      price: '7 733 300',
+      address: 'Комендантский пр., уч. 1 Каменка',
+      status: 'sold',
+      status_text: 'Продано'
+    })
+    +product({
+      price: '7 733 300',
+      address: 'Комендантский пр., уч. 1 Каменка'
+    })
+

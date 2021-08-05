@@ -1,0 +1,22 @@
+mixin product(params)
+  .product
+    .product__check
+    .product__info
+      .product__info-pricetag
+        .product__info-pricetag-price #{params.price} руб.
+        .product__info-pricetag-name
+          .product__info-pricetag-name-img
+            img(src=require('@/assets/img/svg/floorplan.svg') alt="")
+          .product__info-pricetag-name-text #{params.name} Квартира
+      if (params.developer)
+        .product__info-developer #{params.developer}, #[span #{params.developer_date}]
+      .product__info-block
+      .product__info-address #{params.address}
+    .product__plan
+      if (params.status)
+        .product__plan-status(
+          class=params.status ? `product__plan-status_${params.status}` : ''
+        ) #{params.status_text}
+      .product__plan-img
+        img(src=require('@/assets/img/plan-1.png') alt="")
+      .product__plan-date Добавлено 21/11/2020
