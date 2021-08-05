@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as *
+@use '../abstracts/mixins' as *
+
+body
+  font-family: $font
+  color: $base-darkest
+  background: $base-light
+
+.container
+  position: relative
+  box-sizing: border-box
+  width: 100%
+  max-width: 1200px
+  margin: 0 auto
+  padding: 0 100px
+  +screen($tablet)
+    padding: 0 20px
