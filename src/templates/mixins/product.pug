@@ -1,16 +1,28 @@
 mixin product(params)
   .product
     .product__check
+      +checkbox({ text: false })
     .product__info
       .product__info-pricetag
         .product__info-pricetag-price #{params.price} руб.
-        .product__info-pricetag-name
-          .product__info-pricetag-name-img
-            img(src=require('@/assets/img/svg/floorplan.svg') alt="")
-          .product__info-pricetag-name-text #{params.name} Квартира
+        if (params.name)
+          .product__info-pricetag-name(data-title=params.toolbox)
+            .product__info-pricetag-name-img
+              img(src=params.name_icon alt="")
+            .product__info-pricetag-name-text #{params.name}
       if (params.developer)
         .product__info-developer #{params.developer}, #[span #{params.developer_date}]
       .product__info-block
+        .product__info-block-column
+          if (params.room)
+            span #{params.room}
+          if (params.amount)
+            span #{params.amount}
+        .product__info-block-column
+          if (params.area)
+            span #{params.area}
+          if (params.floor)
+            span #{params.floor}
       .product__info-address #{params.address}
     .product__plan
       if (params.status)

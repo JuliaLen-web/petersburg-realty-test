@@ -1,0 +1,29 @@
+mixin button(params)
+  a.button(href="javascript:") #{params.text}
+    if (params.icon)
+      .button__img
+        img(src=params.icon alt="")
+
+mixin checkbox(params)
+  label.checkbox #{params.label}
+    input.checkbox__input(type="checkbox")
+    .checkbox__img
+
+mixin search(params)
+  .form__search
+    input.form__search-input(
+      type="search"
+      placeholder=params.placeholder
+    )
+    .form__search-btn
+      | !{ require('!svg-inline-loader!@/assets/img/svg/search.svg') }
+
+mixin dropdown(params)
+  .dropdown
+    span.dropdown__select #{params.text}
+    .dropdown__icon
+      img(src=require('@/assets/img/svg/arrow.svg') alt="")
+    .dropdown__menu
+      each el in params.options
+        .dropdown__menu-option
+          +checkbox({ label: el.text })

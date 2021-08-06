@@ -1,33 +1,76 @@
 include ../mixins/product
+include ../mixins/form
 
 .catalog
+  .catalog__menu
+    +search({ placeholder: 'Введите ЖК / корпус / № квартиры / № паркинга' })
+    +dropdown({
+      text: 'Все статусы',
+      options: [
+        { text: 'Забронировано' },
+        { text: 'Продано' },
+        { text: 'Активно' }
+      ]
+    })
+    +button({ text: 'Очистить корзину', icon: require('@/assets/img/svg/close.svg') })
+  .catalog__actions
+    +checkbox({ label: 'все' })
+    +button({ text: 'Сохранить', icon: require('@/assets/img/svg/pdf.svg') })
+    +button({ text: 'Отправить', icon: require('@/assets/img/svg/send.svg') })
+    +button({ text: 'Удалить', icon: require('@/assets/img/svg/bin.svg') })
   .catalog__products
     +product({
       price: '7 733 300',
+      name: 'Квартира',
+      toolbox: 'С мансардой',
+      name_icon: require('@/assets/img/svg/floorplan.svg'),
       developer: 'Чистое небо',
+      room: 'кв. 62',
+      area: '234.38 м²',
+      amount: '1 комн. кв.',
+      floot: '7 этаж',
       developer_date: 'корпус 10, III кв. 2022 г.',
       address: 'Лен. область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1',
       status: 'entity',
       status_text: 'Уступка от юр.лица'
     })
     +product({
-      price: '800 300',
+      price: '8 800 300',
+      name: 'Квартира',
+      toolbox: 'Двухэтажная',
+      name_icon: require('@/assets/img/svg/floorplan.svg'),
       developer: 'Зеленый квартал на Пулковских высотах',
       developer_date: 'корпус 10, II кв. 2022 г.',
+      room: 'кв. 62',
+      area: '234.38 м²',
+      amount: '1 комн. кв.',
+      floot: '7 этаж',
       address: 'Комендантский пр., уч. 1 Каменка',
       status: 'individual',
       status_text: 'Уступка от физ.лица'
     })
     +product({
-      price: '7 733 300',
+      price: '733 300',
+      name: 'Паркинг',
+      toolbox: 'Подземная встроенно-пристроенная',
+      name_icon: require('@/assets/img/svg/car.svg'),
       developer: 'Чистое небо',
       developer_date: 'корпус 10, III кв. 2023 г.',
+      room: '№ 7-10-2 (ПИБ №68)',
+      area: '15 м²',
       address: 'Ленинградская область, Всеволожский район, д. Кудрово, ул. Столичная, д. 5, к. 1',
       status: 'booked',
       status_text: 'Зарезервировано'
     })
     +product({
-      price: '7 733 300',
+      price: '333 300',
+      name: 'Паркинг',
+      name_icon: require('@/assets/img/svg/car.svg'),
+      toolbox: 'Подземная встроенно-пристроенная',
+      developer: 'Чистое небо',
+      developer_date: 'корпус 10, III кв. 2023 г.',
+      room: '№ 7-10-2 (ПИБ №68)',
+      area: '15 м²',
       address: 'Комендантский пр., уч. 1 Каменка',
       status: 'sold',
       status_text: 'Продано'

@@ -13,6 +13,9 @@
   &:nth-child(2n+1)
     margin-right: 23px
 
+  &__check
+    margin: auto 25px auto 0
+
   &__info
     display: flex
     flex-direction: column
@@ -30,6 +33,7 @@
         color: $accent-dark
 
       &-name
+        position: relative
         display: flex
         align-items: center
         padding: 5px 16px
@@ -41,11 +45,54 @@
           width: 14px
           margin-right: 8px
 
+        &:hover:after
+          content: attr(data-title)
+          position: absolute
+          left: calc(50% - 17px)
+          top: 42px
+          z-index: 1
+          background: rgba( 0, 0, 0, 0.6)
+          color: $base-lightest
+          +font(13px, 18px)
+          box-sizing: border-box
+          padding: 12px 18px
+          width: max-content
+          max-width: 250px
+
+        &:hover:before
+          content: ''
+          width: 17px
+          height: 7px
+          position: absolute
+          top: 35px
+          left: 50%
+          z-index: 1
+          background: rgba( 0, 0, 0, 0.6)
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%)
+
     &-developer
+      min-height: 42px
       +font(14px, 18px)
 
       span
         color: $base-dark
+
+    &-block
+      display: flex
+      margin: 14px 0
+
+      &-column
+        display: flex
+        flex-direction: column
+        box-sizing: border-box
+        padding-right: 20px
+
+        &:first-child
+          border-right: 1px solid $base-darker
+          margin-right: 20px
+
+        span
+          +font(14px, 25px)
 
     &-address
       margin-top: auto
@@ -54,7 +101,8 @@
       &:before
         content: ''
         position: absolute
-        left: -15px
+        left: -17px
+        top: 1px
         width: 10px
         height: 13px
         background: url(../assets/img/svg/mark.svg) no-repeat center
@@ -100,17 +148,17 @@
 
       &_booked
         background: #EDEDED
-        color: #686868
+        color: $main-gray
 
         &:before
-          background: #686868
+          background: $main-gray
 
       &_sold
         background: $base-dark
-        color: #808080
+        color: $main-gray-light
 
         &:before
-          background: #808080
+          background: $main-gray-light
 
     &-img
       width: 127px
